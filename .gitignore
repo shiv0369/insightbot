@@ -8,3 +8,8 @@ data/superstore.db
 latest_chart.html
 *.log
 .DS_Store
+# Generated test charts
+*.html
+test_chart.html
+chart_test_*.html
+latest_chart.html

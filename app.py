@@ -1,28 +1,4 @@
 import os
-import subprocess
-
-# ============================================================
-# CLOUD FIRST-RUN SETUP
-# Builds the database, generates PDFs, and creates the vector store
-# if they don't exist yet. Runs once on Streamlit Cloud's fresh server.
-# Skipped automatically on local runs where these files already exist.
-# ============================================================
-if not os.path.exists("data/superstore.db"):
-    print("🔨 Building SQLite database...")
-    subprocess.run(["python", "load_to_db.py"], check=True)
-
-if not os.path.exists("data/reports") or len(os.listdir("data/reports")) == 0:
-    print("📄 Generating sample PDFs...")
-    subprocess.run(["python", "generate_sample_pdfs.py"], check=True)
-
-if not os.path.exists("chroma_db"):
-    print("🧠 Building vector store...")
-    subprocess.run(["python", "rag_engine.py"], check=True)
-
-
-# ============================================================
-# IMPORTS
-# ============================================================
 import streamlit as st
 import pandas as pd
 from dotenv import load_dotenv

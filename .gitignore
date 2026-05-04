@@ -1,0 +1,10 @@
+venv/
+.env
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+chroma_db/
+data/superstore.db
+latest_chart.html
+*.log
+.DS_Store
